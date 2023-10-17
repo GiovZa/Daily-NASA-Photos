@@ -74,17 +74,21 @@ render() {
           </div>
 
           <div className="card-container">
-              {displayedImages.length ? (
-                  displayedImages.map(apod => (
-                      <Link to={`/detail/${apod.date}`} key={apod.date}>
-                          <div className="card">
-                              <img src={apod.url} alt={apod.title} />
-                          </div>
-                      </Link>
-                  ))
-              ) : (
-                  <h2>Images Coming Soon!</h2>
-              )}
+            {displayedImages.length ? (
+                displayedImages.map(apod => (
+                    <Link to={`/detail/${apod.date}`} key={apod.date}>
+                        <div className="card">
+                          {apod.media_type === 'video' ? (
+                              <img src={apod.thumbnail_url} alt={`Video: ${apod.title}`} />
+                          ) : (
+                              <img src={apod.url} alt={`Image: ${apod.title}`} />
+                          )}
+                        </div>
+                    </Link>
+                ))
+            ) : (
+                <h2>Images Coming Soon!</h2>
+            )}
           </div>
 
 

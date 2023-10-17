@@ -48,11 +48,16 @@ const DetailView = ({ data }) => {
             <button onClick={handlePrevious}>Previous</button>
             <button onClick={handleNext}>Next</button>
             <div className="card">
-                <h1>{detailView.title}</h1>
-                <h2>{detailView.date}</h2>
-                <img src={detailView.url} alt={detailView.title} />
-                <p>{detailView.explanation}</p>
-            </div>
+              <h1>{detailView.title}</h1>
+              <h2>{detailView.date}</h2>
+              <h3>Media Type: {detailView.media_type}</h3>
+              {detailView.media_type === 'video' ? (
+                  <iframe title={detailView.title} src={detailView.url} allowFullScreen alt={`Video: ${detailView.title}`}></iframe>
+              ) : (
+                  <img src={detailView.url} alt={`Image: ${detailView.title}`} />
+              )}
+              <p>{detailView.explanation}</p>
+          </div>
         </div>
     );
 };

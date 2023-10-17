@@ -26,19 +26,29 @@ const ListView = ({ data }) => {
         setFilteredData(newFilteredData);
     };
 
-const handleSortChange = (property) => {
-  setSortProperty(property);
-  setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc'); // Toggle sort order
+    const handleSortChange = (property) => {
+        if (sortProperty !== property) { // Change sort property only if different
+            setSortProperty(property);
+            // No need to toggle sort order here
+        }
+        // You should not sort here, it will be sorted when the state updates, and it will trigger a re-render
+    };
 
-  // Sort the filtered data based on the new sort property and order
-  const newFilteredData = [...filteredData].sort((a, b) => {
-    const propA = property === 'date' ? a.date : a.title.toLowerCase();
-    const propB = property === 'date' ? b.date : b.title.toLowerCase();
-    return (propA < propB ? -1 : 1) * (sortOrder === 'asc' ? -1 : 1); // Toggle sort order within the sort function
-  });
+    const handleOrderChange = () => {
+        const newOrder = sortOrder === 'asc' ? 'desc' : 'asc';
+        setSortOrder(newOrder);
+    };
 
-  setFilteredData(newFilteredData);
-};
+    // useEffect to sort data whenever sortProperty or sortOrder changes
+    React.useEffect(() => {
+        const newFilteredData = [...filteredData].sort((a, b) => {
+            const propA = sortProperty === 'date' ? a.date : a.title.toLowerCase();
+            const propB = sortProperty === 'date' ? b.date : b.title.toLowerCase();
+            return (propA < propB ? -1 : 1) * (sortOrder === 'asc' ? 1 : -1);
+        });
+
+        setFilteredData(newFilteredData);
+    }, [sortProperty, sortOrder, filteredData]);
 
 
     if (!filteredData || filteredData.length === 0) 
@@ -52,14 +62,40 @@ const handleSortChange = (property) => {
     return (
         <div className="ListView">
             <Search onChange={handleSearchChange} />
-            <button onClick={() => handleSortChange('title')}>Sort by Title</button>
-            <button onClick={() => handleSortChange('date')}>Sort by Date</button>
+            <div className="sortOptions">
+                <label>
+                    <input
+                        type="radio"
+                        value="title"
+                        checked={sortProperty === 'title'}
+                        onChange={() => handleSortChange('title')}
+                    />
+                    Sort by Title
+                </label>
+                <label>
+                    <input
+                        type="radio"
+                        value="date"
+                        checked={sortProperty === 'date'}
+                        onChange={() => handleSortChange('date')}
+                    />
+                    Sort by Date
+                </label>
+                <button onClick={handleOrderChange}>
+                    {sortOrder === 'asc' ? 'Ascending' : 'Descending'}
+                </button>
+            </div>
+
             {filteredData.map(apod => (
                 <Link to={`/detail/${apod.date}`} key={apod.date}>
                     <div className="card">
                         <h1>{apod.title}</h1>
                         <h2>{apod.date}</h2>
-                        <img src={apod.url} alt={apod.title} />
+                        {apod.media_type === 'video' ? (
+                            <img src={apod.thumbnail_url} alt={`Video: ${apod.title}`} />
+                        ) : (
+                            <img src={apod.url} alt={apod.title} />
+                        )}
                     </div>
                 </Link>
             ))}

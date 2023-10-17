@@ -5,7 +5,7 @@ $main-color: #333; // Define a default if you haven't already
     background-color: $main-color;
     color: #ffffff;
     padding: 10px 15px;     
-    margin: 5% 15%;
+    margin: 2% 25%;
 
     img {
         width: 300px;
@@ -18,19 +18,27 @@ $main-color: #333; // Define a default if you haven't already
 
     h1 {
         font-size: 32px;
-        margin: 20px auto;
-        padding: 20px;
+        margin: 5px auto;
+        padding: 5px;
     }
     
     h2 {
         font-size: 20px;
-        margin: 20px auto;
-        padding: 20px;
+        margin: 5px auto;
+        padding: 5px;
     }
 
     p, a {
-        padding: 10px 15%;     
+        padding: 10px 15px;     
 
         // @include style-text(); Uncomment this if you've defined the style-text mixin elsewhere
+    }
+
+    .card:hover {
+        transform: scale(1.00); // Scales the card size up by 5% on hover
+    }
+
+    .Link {
+        text-decoration: none; // Removes the underline
     }
 }
