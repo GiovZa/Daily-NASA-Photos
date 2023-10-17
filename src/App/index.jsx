@@ -7,6 +7,7 @@ import ListView from '../ListView';
 import GalleryView from '../GalleryView';
 import DetailView from '../DetailView';
 import axios from 'axios';
+import './styles.scss'; // Import the SCSS file
 
 class App extends Component {
   constructor(props) {
@@ -39,8 +40,20 @@ class App extends Component {
 
   render() {
       if (this.state.loading) {
-    return <h2>Loading data...</h2>; // Or any other loading indicator you prefer
-  }
+        return (
+          <div className="loading-screen">
+            <script src="https://kit.fontawesome.com/11232be505.js" crossorigin="anonymous"></script>
+            <div className="loading-icon">
+              {/* You can use an image or an icon library like FontAwesome for the rotating icon */}
+              <i className="fa fa-spinner fa-spin"></i> {/* Example with FontAwesome */}
+            </div>
+            <div className="progress-bar-container">
+              <div className="progress-bar" style={{ animationDuration: '20s' }}></div>
+            </div>
+          </div>
+        );
+      }
+    
     return (
       <Router>
         <div className="App">

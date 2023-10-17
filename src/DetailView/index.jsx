@@ -35,31 +35,31 @@ const DetailView = ({ data }) => {
       navigate(`/detail/${nextDate}`);
   };  
 
-    const handleReturn = () => {
-        navigate('/list'); // Use navigate instead of history.push to navigate back to the list view or any other default view
-    };
-
     const detailView = data.find(apod => apod.date === id);
     if (!detailView) return <div>No data found for the selected date.</div>;
 
     return (
-        <div className="DetailView">
-            <button onClick={handleReturn}>Return</button>
-            <button onClick={handlePrevious}>Previous</button>
-            <button onClick={handleNext}>Next</button>
-            <div className="card">
-              <h1>{detailView.title}</h1>
-              <h2>{detailView.date}</h2>
-              <h3>Media Type: {detailView.media_type}</h3>
+    <div className="DetailView" style={{backgroundColor: 'gray'}}> {/* Set the background color here */}
+      <div className="card">
+          <h1>{detailView.title}</h1>
+          <h2>{detailView.date}</h2>
+          
+          <div className="media-navigation">
+              <button onClick={handlePrevious}>Previous</button>
+
               {detailView.media_type === 'video' ? (
                   <iframe title={detailView.title} src={detailView.url} allowFullScreen alt={`Video: ${detailView.title}`}></iframe>
               ) : (
                   <img src={detailView.url} alt={`Image: ${detailView.title}`} />
               )}
-              <p>{detailView.explanation}</p>
+
+              <button onClick={handleNext}>Next</button>
           </div>
-        </div>
-    );
+
+          <p>{detailView.explanation}</p>
+      </div>
+  </div>
+  );
 };
 
 DetailView.propTypes = {

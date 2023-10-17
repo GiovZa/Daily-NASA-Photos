@@ -42,3 +42,64 @@ $main-color: #333; // Define a default if you haven't already
         text-decoration: none; // Removes the underline
     }
 }
+
+// SCSS changes
+
+$main-color: #333; // Your main color
+
+.DetailView {
+    // This will make the content align in a row
+    display: flex;
+    justify-content: space-between; // Adjust the spacing as per your design requirement
+    align-items: start; // Change this based on your design requirement
+    padding: 10px;
+
+    .navigation {
+        display: flex;
+        button {
+            justify-content: space-between; // Adjust the spacing as per your design requirement
+            margin-bottom: 5px; // Space between buttons
+            // Add other styles for your buttons
+        }
+    }
+
+    .card {
+        // Your existing styles
+        text-align: center;
+        background-color: $main-color;
+        color: #ffffff; // This makes the text white
+        // ... other styles ...
+
+        &:hover {
+            transform: scale(1.0);
+        }
+
+        .media-navigation {
+            display: flex;
+            justify-content: space-between; // This pushes one button to the far left, the other to the far right
+            align-items: center; // This vertically centers the buttons and image/video
+            margin-bottom: 20px; // Optional: for some space between this container and the next element
+
+            img, iframe {
+                flex-grow: 1; // This lets the image/video take up all available space
+                max-width: calc(100% - 100px); // This assumes buttons take up 50px on each side
+                margin: 0 20px; // This gives some space between the buttons and the image/video
+            }
+        }    
+    }
+
+    .view-buttons {
+        display: flex;
+        flex-direction: column; // Stack the buttons vertically
+
+        button {
+            margin-bottom: 5px; // Space between buttons
+            // Add other styles for your buttons
+        }
+    }
+}
+
+// Ensure global text color is white if not only within card
+body {
+    color: #ffffff; // This makes the text white
+}
