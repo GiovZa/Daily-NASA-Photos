@@ -6,6 +6,7 @@ class Header extends React.Component {
   render() {
     return (
       <div className="Header">
+        <h1>APOD 2023</h1>
         <div className="navigation-buttons">
           <Link to="/list">
             <button>ListView</button>
