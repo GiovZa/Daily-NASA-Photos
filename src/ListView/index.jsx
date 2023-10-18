@@ -5,7 +5,7 @@ import Search from '../Search';
 import './styles.scss';
 
 const ListView = ({ data }) => {
-    const [searchTerm, setSearchTerm] = useState('');
+    const [setSearchTerm] = useState('');
     const [filteredData, setFilteredData] = useState(data);
     const [sortProperty, setSortProperty] = useState('date'); // Either 'date' or 'title'
     const [sortOrder, setSortOrder] = useState('asc'); // Either 'asc' or 'desc'

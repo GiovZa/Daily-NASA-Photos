@@ -50,7 +50,7 @@ const DetailView = ({ data }) => {
               {detailView.media_type === 'video' ? (
                   <iframe title={detailView.title} src={detailView.url} allowFullScreen alt={`Video: ${detailView.title}`}></iframe>
               ) : (
-                  <img src={detailView.url} alt={`Image: ${detailView.title}`} />
+                  <img src={detailView.url} alt={detailView.title} />
               )}
 
               <button onClick={handleNext}>Next</button>

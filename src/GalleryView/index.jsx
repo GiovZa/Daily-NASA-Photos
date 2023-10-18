@@ -81,7 +81,7 @@ render() {
                           {apod.media_type === 'video' ? (
                               <img src={apod.thumbnail_url} alt={`Video: ${apod.title}`} />
                           ) : (
-                              <img src={apod.url} alt={`Image: ${apod.title}`} />
+                              <img src={apod.url} alt={apod.title} />
                           )}
                         </div>
                     </Link>
