@@ -3,32 +3,24 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh; // This makes the loading screen cover the entire viewport
-    background-color: #60016e; // Or any other color you prefer
-    color: #fff; // This makes the text color white
+    height: 100vh;
+    background-color: #8A2BE2;
   
     .progress-bar-container {
-      width: 50%; // Use a percentage to keep it responsive
-      background-color: #333; // Dark background for the progress bar
+      width: 50%;
+      background-color: #333;
       padding: 3px;
-      border-radius: 3px; // Optional: for rounded corners
-      overflow: hidden; // Ensures the inner bar stays within the container
+      border-radius: 3px;
+      overflow: hidden;
     }
   
     .progress-bar {
-      height: 20px; // Or whatever height you prefer
-      background-color: #4CAF50; // Or any other color you like
-      width: 0; // Initial width
-      border-radius: 1px; // Optional: for rounded corners
+      height: 20px;
+      background-color: #4CAF50;
+      width: 0;
+      border-radius: 1px;
   
-      // This animation will fill the bar from 0% to 100% in 20 seconds
       animation: loading 30s ease-in-out forwards;
-    }
-  
-    // Keyframes for the spinning animation
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
     }
   
     // Keyframes for the progress bar animation
