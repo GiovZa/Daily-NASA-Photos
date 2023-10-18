@@ -42,11 +42,6 @@ class App extends Component {
       if (this.state.loading) {
         return (
           <div className="loading-screen">
-            <script src="https://kit.fontawesome.com/11232be505.js" crossorigin="anonymous"></script>
-            <div className="loading-icon">
-              {/* You can use an image or an icon library like FontAwesome for the rotating icon */}
-              <i className="fa fa-spinner fa-spin"></i> {/* Example with FontAwesome */}
-            </div>
             <div className="progress-bar-container">
               <div className="progress-bar" style={{ animationDuration: '30s' }}></div>
             </div>

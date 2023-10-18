@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from "prop-types";
-import { useParams, useNavigate } from 'react-router-dom'; // Use useNavigate instead of useHistory
+import { useParams, useNavigate } from 'react-router-dom';
 import './styles.scss';
 
 const DetailView = ({ data }) => {
     const { id } = useParams();
-    const navigate = useNavigate(); // Use useNavigate instead of useHistory
+    const navigate = useNavigate();
 
     // Utility function to get the next date
     const getNextDate = (currentDate) => {
@@ -40,25 +40,25 @@ const DetailView = ({ data }) => {
 
     return (
     <div className="DetailView">
-      <div className="card">
-          <h1>{detailView.title}</h1>
-          <h2>{detailView.date}</h2>
-          <h2>Media type: {detailView.media_type}</h2>
-          <div className="media-navigation">
-              <button onClick={handlePrevious}>Previous</button>
+        <div className="card">
+            <h1>{detailView.title}</h1>
+            <h2>{detailView.date}</h2>
+            <h2>Media type: {detailView.media_type}</h2>
+            <div className="media-navigation">
+                <button onClick={handlePrevious}>Previous</button>
 
-              {detailView.media_type === 'video' ? (
-                  <iframe title={detailView.title} src={detailView.url} allowFullScreen alt={`Video: ${detailView.title}`}></iframe>
-              ) : (
-                  <img src={detailView.url} alt={detailView.title} />
-              )}
+                {detailView.media_type === 'video' ? (
+                    <iframe title={detailView.title} src={detailView.url} allowFullScreen alt={`Video: ${detailView.title}`}></iframe>
+                ) : (
+                    <img src={detailView.url} alt={detailView.title} />
+                )}
 
-              <button onClick={handleNext}>Next</button>
-          </div>
+                <button onClick={handleNext}>Next</button>
+            </div>
 
-          <p>{detailView.explanation}</p>
-      </div>
-  </div>
+            <p>{detailView.explanation}</p>
+        </div>
+    </div>
   );
 };
 

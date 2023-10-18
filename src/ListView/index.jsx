@@ -27,11 +27,9 @@ const ListView = ({ data }) => {
     };
 
     const handleSortChange = (property) => {
-        if (sortProperty !== property) { // Change sort property only if different
+        if (sortProperty !== property) { 
             setSortProperty(property);
-            // No need to toggle sort order here
         }
-        // You should not sort here, it will be sorted when the state updates, and it will trigger a re-render
     };
 
     const handleOrderChange = () => {
@@ -39,7 +37,6 @@ const ListView = ({ data }) => {
         setSortOrder(newOrder);
     };
 
-    // useEffect to sort data whenever sortProperty or sortOrder changes
     React.useEffect(() => {
         const newFilteredData = [...filteredData].sort((a, b) => {
             const propA = sortProperty === 'date' ? a.date : a.title.toLowerCase();

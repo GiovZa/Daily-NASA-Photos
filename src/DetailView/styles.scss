@@ -1,7 +1,6 @@
 @import 'src/styles';
 
 .DetailView {
-    // This will make the content align in a row
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -22,30 +21,29 @@
 
         p, a {
             padding: 10px 15px;    
-            line-height: 1.3; /* You can adjust this value */ 
+            line-height: 1.3;
         }
 
         .media-navigation {
             display: flex;
-            justify-content: space-between; // This pushes one button to the far left, the other to the far right
-            align-items: center; // This vertically centers the buttons and image/video
-            margin-bottom: 20px; // Optional: for some space between this container and the next element
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
 
             img, iframe {
-                flex-grow: 1; // This lets the image/video take up all available space
-                max-width: calc(100% - 100px); // This assumes buttons take up 50px on each side
-                margin: 0 20px; // This gives some space between the buttons and the image/video
+                flex-grow: 1;
+                max-width: calc(100% - 100px);
+                margin: 0 20px;
             }
         }   
     }
 
     .view-buttons {
         display: flex;
-        flex-direction: column; // Stack the buttons vertically
+        flex-direction: column;
 
         button {
-            margin-bottom: 5px; // Space between buttons
-            // Add other styles for your buttons
+            margin-bottom: 5px;
         }
     }
 }
