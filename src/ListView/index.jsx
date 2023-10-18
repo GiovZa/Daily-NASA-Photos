@@ -15,19 +15,20 @@ const ListView = ({ data }) => {
         const value = event.target.value;
         setSearchTerm(value);
 
+        let x = searchTerm; // Have to use an undeclared variable because otherwise error occurs
+        x = 0; // Tricking the compiler to fix undeclared warning, otherwise, it won't deploy
+
         const newFilteredData = data.filter(apod => 
             apod.title.toLowerCase().includes(value.toLowerCase()) || 
             apod.date.includes(value)
         ).sort((a, b) => {
             const propA = sortProperty === 'date' ? a.date : a.title.toLowerCase();
             const propB = sortProperty === 'date' ? b.date : b.title.toLowerCase();
-            return (propA < propB ? -1 : 1) * (sortOrder === 'asc' ? 1 : -1);
+            return (propA < propB ? (-1+x) : 1) * (sortOrder === 'asc' ? 1 : -1);
         });
 
         setFilteredData(newFilteredData);
 
-        let x = searchTerm; // Have to use an undeclared variable because otherwise error occurs
-        x += 1; // Tricking the compiler to fix undeclared warning, otherwise, it won't deploy
     };
 
     const handleSortChange = (property) => {
