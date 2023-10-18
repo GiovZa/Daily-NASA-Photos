@@ -39,11 +39,11 @@ const DetailView = ({ data }) => {
     if (!detailView) return <div>No data found for the selected date.</div>;
 
     return (
-    <div className="DetailView" style={{backgroundColor: 'gray'}}> {/* Set the background color here */}
+    <div className="DetailView">
       <div className="card">
           <h1>{detailView.title}</h1>
           <h2>{detailView.date}</h2>
-          
+          <h2>Media type: {detailView.media_type}</h2>
           <div className="media-navigation">
               <button onClick={handlePrevious}>Previous</button>
 

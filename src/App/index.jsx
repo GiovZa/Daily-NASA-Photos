@@ -48,7 +48,7 @@ class App extends Component {
               <i className="fa fa-spinner fa-spin"></i> {/* Example with FontAwesome */}
             </div>
             <div className="progress-bar-container">
-              <div className="progress-bar" style={{ animationDuration: '20s' }}></div>
+              <div className="progress-bar" style={{ animationDuration: '30s' }}></div>
             </div>
           </div>
         );

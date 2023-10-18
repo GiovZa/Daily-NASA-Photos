@@ -1,48 +1,5 @@
 $main-color: #333; // Define a default if you haven't already
 
-.card {
-    text-align: center;
-    background-color: $main-color;
-    color: #ffffff;
-    padding: 10px 15px;     
-    margin: 2% 25%;
-
-    img {
-        width: 300px;
-        height: 300px;
-        margin: 10px auto;
-        border-radius: 20%;
-        display: block;
-        padding: 20px;
-    }
-
-    h1 {
-        font-size: 32px;
-        margin: 5px auto;
-        padding: 5px;
-    }
-    
-    h2 {
-        font-size: 20px;
-        margin: 5px auto;
-        padding: 5px;
-    }
-
-    p, a {
-        padding: 10px 15px;     
-
-        // @include style-text(); Uncomment this if you've defined the style-text mixin elsewhere
-    }
-
-    .card:hover {
-        transform: scale(1.00); // Scales the card size up by 5% on hover
-    }
-
-    .Link {
-        text-decoration: none; // Removes the underline
-    }
-}
-
 // SCSS changes
 
 $main-color: #333; // Your main color
@@ -64,14 +21,16 @@ $main-color: #333; // Your main color
     }
 
     .card {
-        // Your existing styles
-        text-align: center;
-        background-color: $main-color;
-        color: #ffffff; // This makes the text white
-        // ... other styles ...
 
-        &:hover {
-            transform: scale(1.0);
+        padding: 10px 15px;     
+        margin: 2% 25%;
+
+        p, a {
+            padding: 10px 15px;     
+        }
+    
+        .Link {
+            text-decoration: none; // Removes the underline
         }
 
         .media-navigation {
@@ -85,7 +44,7 @@ $main-color: #333; // Your main color
                 max-width: calc(100% - 100px); // This assumes buttons take up 50px on each side
                 margin: 0 20px; // This gives some space between the buttons and the image/video
             }
-        }    
+        }   
     }
 
     .view-buttons {
@@ -97,9 +56,4 @@ $main-color: #333; // Your main color
             // Add other styles for your buttons
         }
     }
-}
-
-// Ensure global text color is white if not only within card
-body {
-    color: #ffffff; // This makes the text white
 }

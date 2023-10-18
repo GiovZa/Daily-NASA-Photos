@@ -1,12 +1,12 @@
+@import 'src/styles';
+
+
 $main-color: #333;
 $green: #4CAF50;
 $purple: #8A2BE2;
 
 // General styling for the GalleryView container
 .GalleryView {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding: 20px;
     background-color: $purple;
 }
@@ -38,19 +38,9 @@ $purple: #8A2BE2;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
 
     .card {
-        // Removed the flex property from here
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        background-color: $main-color;
-        color: #ffffff;
-        border-radius: 5px;
         margin: 2px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
         &:hover {
             background-color: lighten($main-color, 20%);

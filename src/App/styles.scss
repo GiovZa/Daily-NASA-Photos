@@ -7,15 +7,6 @@
     background-color: #60016e; // Or any other color you prefer
     color: #fff; // This makes the text color white
   
-    .loading-icon {
-      font-size: 2em; // Adjust the size as needed
-      margin-bottom: 20px;
-  
-      .fa-spinner {
-        animation: spin 2s linear infinite; // This creates the spinning effect
-      }
-    }
-  
     .progress-bar-container {
       width: 50%; // Use a percentage to keep it responsive
       background-color: #333; // Dark background for the progress bar

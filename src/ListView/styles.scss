@@ -1,4 +1,4 @@
-$main-color: #6C3483; // A shade of purple
+@import 'src/styles';
 
 .ListView {
     background-color: gray;
@@ -7,48 +7,10 @@ $main-color: #6C3483; // A shade of purple
     .card:hover {
         transform: scale(1.05); // Scales the card size up by 5% on hover
     }
-}
 
-.card {
-    text-align: center;
-    background-color: purple;
-    border: 1px solid green;
-    color: #ffffff;
-    padding: 10px 15px;     
-    margin: 10px 0; // Reducing margin between top and bottom
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s; // For smooth scaling on hover
-
-    img {
-        width: 100%;
-        width: 300px;
-        height: 300px;
-        margin: 10px auto;
-        border-radius: 8px; // Optional, if you want a bit rounded corners for images
-        display: block;
-        padding: 20px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    h1 {
-        font-size: 24px; // reduced size
-        margin: 0px 0px;
-        padding: 0; // reduced spacing
-        color: green;
-    }
-    
-    h2 {
-        font-size: 18px; // reduced size
-        margin: 5px 0px; // reduced spacing
-        padding: 0; // reduced spacing
-        color: green;
-    }
-
-    p, a {
-        padding: 10px 15%;     
-
-        // @include style-text(); Uncomment this if you've defined the style-text mixin elsewhere
+    .card {
+        margin: 1% 25%;
+        transition: transform 0.3s; // For smooth scaling on hover
     }
 }
 
@@ -65,17 +27,7 @@ $main-color: #6C3483; // A shade of purple
         display: block;
         margin-bottom: 5px;
         color: purple;
-
-        input {
-            margin-right: 5px;
-        }
     }
-}
-
-.ListView-container {
-    position: relative;
-    max-width: 1200px; // or your desired width
-    margin: 0 auto; // centers the container
 }
 
 
